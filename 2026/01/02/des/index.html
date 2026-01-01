@@ -94,7 +94,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/images/redefine-og.webp">
 <meta property="article:published_time" content="2026-01-01T18:42:18.391Z">
-<meta property="article:modified_time" content="2026-01-01T18:46:03.133Z">
+<meta property="article:modified_time" content="2026-01-01T19:04:58.973Z">
 <meta property="article:author" content="LinX">
 <meta property="article:tag" content="CTF">
 <meta property="article:tag" content="reverse">
@@ -405,8 +405,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2026-01-02 02:46:03</span>
-            <span class="mobile">2026-01-02 02:46:03</span>
+            <span class="desktop">2026-01-02 03:04:58</span>
+            <span class="mobile">2026-01-02 03:04:58</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -495,25 +495,25 @@
 <h4 id="加密轮次"><a href="#加密轮次" class="headerlink" title="加密轮次"></a>加密轮次</h4><p>初始置换完成后，明文被划分成了相同长度（32位）的左右两部分，记作L0,R0。接下来就会进行16个轮次的加密了。<br>我们从单独一个轮次来看。首先把目光聚焦在R0这里。<br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/image-9.png"
+                     data-src="/../images/image-9.png"
                       alt="alt text"
                 ><br>右半部分R0会作为下一轮次的左半部分L1的输入。其次，R0会补位到48位和本轮次生成的48位K0(马上讲K0的生成)输入到F轮函数中去。F函数的输出结果为32位，结果F(R0,K0)会和L0进行异或运算作为下一轮次右半部分R1的输入。<br>以此类推，重复16轮运算。</p>
 <h4 id="F轮函数"><a href="#F轮函数" class="headerlink" title="F轮函数"></a>F轮函数</h4><p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/image-10.png"
+                     data-src="/../images/image-10.png"
                       alt="alt text"
                 ></p>
 <h5 id="拓展R到48位"><a href="#拓展R到48位" class="headerlink" title="拓展R到48位"></a>拓展R到48位</h5><p>将32位的R0右半部分进行扩展，得到一个48位的数据块。数据拓展也是根据一个固定的置换表。红框中就是我们要补位的数据。<br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/image-11.png"
+                     data-src="/../images/image-11.png"
                       alt="alt text"
                 ><br>由此可见，扩展过程的每一位都是根据上述的置换表从输入的32位数据块中提取出来的。原始数据的第32位被补充到了新增列的第1个，以此类推…</p>
 <h5 id="子密钥K的生成"><a href="#子密钥K的生成" class="headerlink" title="子密钥K的生成"></a>子密钥K的生成</h5><p>1.DES算法采用了每轮子密钥生成的方式来增加密钥的复杂性和安全性。每轮子密钥都是由主密钥（64位）通过密钥调度算法（Key Schedule Algorithm）生成的。<br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/image-12.png"
+                     data-src="/../images/image-12.png"
                       alt="alt text"
                 ></p>
 <div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">static</span> <span class="type">const</span> <span class="type">int</span> PC1[<span class="number">56</span>] = &#123;</span><br><span class="line">    <span class="number">57</span>,<span class="number">49</span>,<span class="number">41</span>,<span class="number">33</span>,<span class="number">25</span>,<span class="number">17</span>,<span class="number">9</span>,</span><br><span class="line">    <span class="number">1</span>,<span class="number">58</span>,<span class="number">50</span>,<span class="number">42</span>,<span class="number">34</span>,<span class="number">26</span>,<span class="number">18</span>,</span><br><span class="line">    <span class="number">10</span>,<span class="number">2</span>,<span class="number">59</span>,<span class="number">51</span>,<span class="number">43</span>,<span class="number">35</span>,<span class="number">27</span>,</span><br><span class="line">    <span class="number">19</span>,<span class="number">11</span>,<span class="number">3</span>,<span class="number">60</span>,<span class="number">52</span>,<span class="number">44</span>,<span class="number">36</span>,</span><br><span class="line">    <span class="number">63</span>,<span class="number">55</span>,<span class="number">47</span>,<span class="number">39</span>,<span class="number">31</span>,<span class="number">23</span>,<span class="number">15</span>,</span><br><span class="line">    <span class="number">7</span>,<span class="number">62</span>,<span class="number">54</span>,<span class="number">46</span>,<span class="number">38</span>,<span class="number">30</span>,<span class="number">22</span>,</span><br><span class="line">    <span class="number">14</span>,<span class="number">6</span>,<span class="number">61</span>,<span class="number">53</span>,<span class="number">45</span>,<span class="number">37</span>,<span class="number">29</span>,</span><br><span class="line">    <span class="number">21</span>,<span class="number">13</span>,<span class="number">5</span>,<span class="number">28</span>,<span class="number">20</span>,<span class="number">12</span>,<span class="number">4</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
@@ -528,7 +528,7 @@
 <h5 id="s盒替换（和aes的有点像）"><a href="#s盒替换（和aes的有点像）" class="headerlink" title="s盒替换（和aes的有点像）"></a>s盒替换（和aes的有点像）</h5><p>S盒替换（Substitution Box substitution）是一种在密码学中广泛使用的加密技术。它是将明文中的一组比特映射到密文中的一组比特的过程，用于增强密码的安全性。DES中S盒替换用于将上一轮异或运算的48位结果映射到32位输出中去。<br>S盒也是一种置换表。S盒内部有8个S块，记作S1-S8。每个S块都会接收6位字符作为输入并输出四位字符。这里我们以第一个S盒S1为例。他是一个4*16的置换表。<br>例如输入101010到S1中。S1会将这六位的第一位和第六位拿出来10作为S1的行，中间四位0101拿出来作为S1的列。我们转换成十进制，此时映射到这个S盒的位置就是(2,5)对应S盒的第3行第6列（索引都从0开始数）。<br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/image-13.png"
+                     data-src="/../images/image-13.png"
                       alt="alt text"
                 ></p>
 <h5 id="p盒置换"><a href="#p盒置换" class="headerlink" title="p盒置换"></a>p盒置换</h5><div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">static</span> <span class="type">const</span> <span class="type">int</span> P[<span class="number">32</span>] = &#123;</span><br><span class="line">    <span class="number">16</span>,<span class="number">7</span>,<span class="number">20</span>,<span class="number">21</span>,</span><br><span class="line">    <span class="number">29</span>,<span class="number">12</span>,<span class="number">28</span>,<span class="number">17</span>,</span><br><span class="line">    <span class="number">1</span>,<span class="number">15</span>,<span class="number">23</span>,<span class="number">26</span>,</span><br><span class="line">    <span class="number">5</span>,<span class="number">18</span>,<span class="number">31</span>,<span class="number">10</span>,</span><br><span class="line">    <span class="number">2</span>,<span class="number">8</span>,<span class="number">24</span>,<span class="number">14</span>,</span><br><span class="line">    <span class="number">32</span>,<span class="number">27</span>,<span class="number">3</span>,<span class="number">9</span>,</span><br><span class="line">    <span class="number">19</span>,<span class="number">13</span>,<span class="number">30</span>,<span class="number">6</span>,</span><br><span class="line">    <span class="number">22</span>,<span class="number">11</span>,<span class="number">4</span>,<span class="number">25</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
@@ -536,7 +536,7 @@
 <h4 id="逆置换"><a href="#逆置换" class="headerlink" title="逆置换"></a>逆置换</h4><p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/image-14.png"
+                     data-src="/../images/image-14.png"
                       alt="alt text"
                 ><br>在经过16轮次计算后，DES会对最后的结果进行最后一次置换。即为最后的输出结果。</p>
 
@@ -553,7 +553,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2026-01-02 02:46:03
+                    :</strong> 2026-01-02 03:04:58
             </li>
         
         <li>
