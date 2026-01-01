@@ -487,7 +487,7 @@
         <div class="label text-third-text-color text-sm">Categories</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">1</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
         <div class="label text-third-text-color text-sm">Posts</div>
     </a>
 </div>
@@ -527,7 +527,7 @@
         <div class="label text-third-text-color text-sm">Categories</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">1</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
         <div class="label text-third-text-color text-sm">Posts</div>
     </a>
 </div>
@@ -552,35 +552,27 @@
                 
                 <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
                     <h3 class="home-article-title">
-                        <a href="/2022/10/02/rc4/">
-                            RC4
+                        <a href="/2026/01/02/aes/">
+                            AES
                         </a>
                     </h3>
 
                     <div class="home-article-content markdown-body">
                         
                             
-                            RC4加密对称加密，加密解密一套密钥
+                            AES
+是一种对称加密算法，加密再解密就是明文
 
-补充：密钥流生成器根据相同的短种子，生成伪随机数列用于明文的加密和解密
-
-
-先初始化状态向量S,0~255
-初始密钥（由用户输入，如果长度小于256，则进行轮转，得到256个字节的向量T
-特征：有很多%256，多个循环次数为256最后处理数据为异或
-魔改：1.在初始化算法加可逆运算2.在最后异或时加可逆运算
-加密代码如下，用来对比题目是否有魔改
-
-/ ...
+步骤：1.字节变换：状态矩阵中的元素按照下面的方式映射为一个新的字节：把该字节的高4位作为行值，低4位作为列值，取出S盒或者逆S盒中对应的行的元素作为输出。例如，加密时，输出的字节S1为0x12,则查S盒的第0x01行和0x02列，得到值0xc9,然后替换S1原有的0x12为0xc9。状态矩阵经字节代换后的图如下逆：用逆s盒2.行移位行移位的...
                         
                     </div>
 
                     <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Sun Oct 02 2022 19:07:05 GMT+0800">
+            <span class="home-article-date" data-date="Fri Jan 02 2026 02:42:20 GMT+0800">
                 
-                    2022-10-02
+                    2026-01-02
                 
             </span>
         </span>
@@ -646,7 +638,318 @@
         
     </div>
 
-    <a href="/2022/10/02/rc4/">Read more<span class="seo-reader-text">RC4</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/2026/01/02/aes/">Read more<span class="seo-reader-text">AES</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                
+
+                
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2026/01/02/des/">
+                            DES
+                        </a>
+                    </h3>
+
+                    <div class="home-article-content markdown-body">
+                        
+                            
+                            DES123456781、初始置换（IP置换）：将输入的64位明文块进行置换和重新排列，生成新的64位数据块。2、加密轮次：DES加密算法共有16个轮次，每个轮次都包括四个步骤：    a. 将64位数据块分为左右两个32位块。    b. 右侧32位块作为输入，经过扩展、异或、置换等操作生成一个48位的数据块。这个48位的数据块被称为“轮密钥”，它是根据加密算法的主密钥生成的子密钥。   ...
+                        
+                    </div>
+
+                    <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Fri Jan 02 2026 02:42:18 GMT+0800">
+                
+                    2026-01-02
+                
+            </span>
+        </span>
+        
+            <span class="home-article-category">
+                <i class="fa-solid fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/reverse/">reverse</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/reverse/%E5%8A%A0%E5%AF%86%E6%96%B9%E5%BC%8F/">加密方式</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fa-solid fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/CTF/">CTF</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/reverse/">reverse</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/%E5%8A%A0%E5%AF%86%E6%96%B9%E5%BC%8F/">加密方式</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2026/01/02/des/">Read more<span class="seo-reader-text">DES</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                
+
+                
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2026/01/02/tea/">
+                            TEA
+                        </a>
+                    </h3>
+
+                    <div class="home-article-content markdown-body">
+                        
+                            
+                            TEA加密
+特征：0x9e379b9,循环32轮，左移4，右移5
+每次加密8个字节(拆分)
+魔改方式：1.改变delta的值2.每轮加密时添加可逆运算3.迭代赋值回去后，添加可逆运算
+加密：
+
+/ c#1234567891011void encrypt(uint32_t* v,uint32_t* key)&#123;uint32_t v0=v[0],v1=v[1],sum=0,i;uint3...
+                        
+                    </div>
+
+                    <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Fri Jan 02 2026 02:42:14 GMT+0800">
+                
+                    2026-01-02
+                
+            </span>
+        </span>
+        
+            <span class="home-article-category">
+                <i class="fa-solid fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/reverse/">reverse</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/reverse/%E5%8A%A0%E5%AF%86%E6%96%B9%E5%BC%8F/">加密方式</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fa-solid fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/CTF/">CTF</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/reverse/">reverse</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/%E5%8A%A0%E5%AF%86%E6%96%B9%E5%BC%8F/">加密方式</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2026/01/02/tea/">Read more<span class="seo-reader-text">TEA</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                
+
+                
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2026/01/01/rc4/">
+                            RC4
+                        </a>
+                    </h3>
+
+                    <div class="home-article-content markdown-body">
+                        
+                            
+                            RC4加密对称加密，加密解密一套密钥
+
+补充：密钥流生成器根据相同的短种子，生成伪随机数列用于明文的加密和解密
+
+
+先初始化状态向量S,0~255
+初始密钥（由用户输入，如果长度小于256，则进行轮转，得到256个字节的向量T
+特征：有很多%256，多个循环次数为256最后处理数据为异或
+魔改：1.在初始化算法加可逆运算2.在最后异或时加可逆运算
+加密代码如下，用来对比题目是否有魔改
+
+/ ...
+                        
+                    </div>
+
+                    <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Thu Jan 01 2026 22:59:45 GMT+0800">
+                
+                    2026-01-01
+                
+            </span>
+        </span>
+        
+            <span class="home-article-category">
+                <i class="fa-solid fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/reverse/">reverse</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/reverse/%E5%8A%A0%E5%AF%86%E6%96%B9%E5%BC%8F/">加密方式</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fa-solid fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/CTF/">CTF</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/reverse/">reverse</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/%E5%8A%A0%E5%AF%86%E6%96%B9%E5%BC%8F/">加密方式</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2026/01/01/rc4/">Read more<span class="seo-reader-text">RC4</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
                 </div>
@@ -684,7 +987,7 @@
                 
                 <p class="post-count space-x-0.5">
                     <span>
-                        1 posts in total
+                        4 posts in total
                     </span>
                     
                 </p>
